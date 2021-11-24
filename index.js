@@ -1,0 +1,64 @@
+var cvs = document.createElement("canvas");
+cvs.width = 1000;
+cvs.height = 1000;
+cvs.style="border:4px solid";
+document.getElementById("container").appendChild(cvs);
+var ctx = cvs.getContext("2d");
+
+/* ここから描画処理 *///入力文字列を蓄積
+
+const svg = document.querySelector("svg");
+
+const SIZE = 600;
+
+ctx.fillStyle = "#000000";
+ctx.beginPath();
+ctx.moveTo(589.55,372.54);
+ctx.lineTo(546.51,337.3);
+ctx.lineTo(379.32,151.14);
+ctx.lineTo(324.27,123.02);
+ctx.lineTo(322.09,99.83);
+ctx.lineTo(334.41,85.06);
+ctx.lineTo(339.48,22.5);
+ctx.lineTo(297.46,0);
+ctx.lineTo(255.45,22.5);
+ctx.lineTo(260.52,85.06);
+ctx.lineTo(272.83,99.83);
+ctx.lineTo(270.66,123.02);
+ctx.lineTo(215.61,151.14);
+ctx.lineTo(48.42,337.3);
+ctx.lineTo(5.38,372.54);
+ctx.lineTo(0,415.61);
+ctx.lineTo(37.66,394.73);
+ctx.lineTo(63.21,354.27);
+ctx.lineTo(231.32,193.73);
+ctx.lineTo(239.39,334.69);
+ctx.lineTo(216.53,402.97);
+ctx.lineTo(243.43,594.42);
+ctx.lineTo(240.74,674.03);
+ctx.lineTo(264.95,799.33);
+ctx.lineTo(244.77,835.88);
+ctx.lineTo(297.46,835.88);
+ctx.lineTo(286.47,799.33);
+ctx.lineTo(297.46,657.07);
+ctx.lineTo(282.43,587.89);
+ctx.lineTo(297.46,446.94);
+ctx.lineTo(312.5,587.89);
+ctx.lineTo(297.46,657.07);
+ctx.lineTo(308.46,799.33);
+ctx.lineTo(297.46,835.88);
+ctx.lineTo(350.15,835.88);
+ctx.lineTo(329.98,799.33);
+ctx.lineTo(354.19,674.03);
+ctx.lineTo(351.5,594.42);
+ctx.lineTo(378.4,402.97);
+ctx.lineTo(355.53,334.69);
+ctx.lineTo(363.6,193.73);
+ctx.lineTo(531.72,354.27);
+ctx.lineTo(557.27,394.73);
+ctx.lineTo(594.93,415.61);
+ctx.lineTo(589.55,372.54);
+ctx.lineTo(589.55,372.54);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
