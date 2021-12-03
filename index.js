@@ -24,4 +24,7 @@ const person = new Person({
   inseam: 69,
 });
 
+height = 180;
+p= height/170;
+ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更
 person.draw(ctx);

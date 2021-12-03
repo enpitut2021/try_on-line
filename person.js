@@ -223,6 +223,8 @@ class Person {
     this.drawer = params.sex === "male" ? new MaleDrawer() : new FemaleDrawer();
   }
 
+  
+
   draw(ctx) {
     ctx.fillStyle = "#000000";
     ctx.translate(0, -200);
