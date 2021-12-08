@@ -11,6 +11,13 @@ const svg = document.querySelector("svg");
 
 const SIZE = 600;
 
+const shirt = new Shirt({
+  height: 75,
+  width: 60,
+});
+
+
+
 const person = new Person({
   sex: "male",
   height: 170,
@@ -24,7 +31,10 @@ const person = new Person({
   inseam: 69,
 });
 
+
 height = 180;
-p= height/170;
+p = height/170;
+
 ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更
 person.draw(ctx);
+shirt.draw(ctx);

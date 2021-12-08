@@ -223,10 +223,12 @@ class Person {
     this.drawer = params.sex === "male" ? new MaleDrawer() : new FemaleDrawer();
   }
 
+
+
   
 
   draw(ctx) {
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#808080";
     ctx.translate(0, -200);
     ctx.beginPath();
     this.drawer.drawLeftArm(ctx);
