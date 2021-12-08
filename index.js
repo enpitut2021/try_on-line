@@ -32,9 +32,12 @@ const person = new Person({
 });
 
 
-height = 180;
+height = 190;
 p = height/170;
-
+ctx.translate(110*1/3*(height-170)/10,-130*1/3*(height-170)/10);
 ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更
 person.draw(ctx);
+q=0.1
+ctx.translate(-34.5*q*10, -36*q*10);//服のサイズ変更の位置ずれ補正
+ctx.scale(1.0+q,1.0+q);
 shirt.draw(ctx);
