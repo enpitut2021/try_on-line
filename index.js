@@ -1,3 +1,4 @@
+
 document.getElementById("button").onclick = function() {
   const formElements = document.forms.input;
 
@@ -71,5 +72,3 @@ document.getElementById("button").onclick = function() {
   ctx.lineTo(650,550);
   ctx.stroke();
 };
-
-
