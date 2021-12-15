@@ -204,14 +204,13 @@ class Person {
     this.height = params.height;
     this.weight = params.weight;
     //任意入力または必須入力からのオートフィル
-    this.shoulder = params.shoulder || params.height * 0.25;
-    this.armlength = params.armlength || params.armlength * 0.32;
+    this.shoulder = params.shoulder || params.height * 0.25; //肩幅
     if (this.sex == "male") {
       this.bust = params.bust || params.bust * 0.7;
       this.waist = params.waist || params.waist * 0.7;
       this.hip = params.hip || params.hip * 0.7;
-      this.rise = params.rise || params.rise * 0.7;
-      this.inseam = params.inseam || params.inseam * 0.7;
+      this.rise = params.rise || params.rise * 0.7; //股上
+      this.inseam = params.inseam || params.inseam * 0.7; //股下
     } else {
       this.bust = params.bust || params.bust * 0.7;
       this.waist = params.waist || params.waist * 0.7;
