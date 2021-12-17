@@ -175,9 +175,9 @@ class Person {
     var avgWaist = (Cwaist1+Cwaist2)/2;
     //判定部
     if(this.waist<Cwaist1) j = 0;
-    else if(Cwaist1<=this.waist&&this.waist<=avgWaist) j = 1;
+    else if(Cwaist1<=this.waist&&this.waist<=avgWaist-1) j = 1;
     else if(this.waist>=avgWaist-1&&this.waist<=avgWaist+1) j = 2;
-    else if(this.waist>=avgWaist&&this.waist<=Cwaist2) j = 3;
+    else if(this.waist>=avgWaist+1&&this.waist<=Cwaist2) j = 3;
     else if(this.waist>Cwaist2) j = 4;
     var Message = '';
     var judgeColor = '';
@@ -206,4 +206,31 @@ class Person {
   judgeWaist1(Cwaist){//引数一つ
       return this.judgeWaist2(Cwaist-3,Cwaist+3);
   }
+
+  judgeChest(Cchest1,Cchest2){//男性のチェストの判定,Cchest1<Cchest2
+    if(this.sex!='male') return -1;//男性じゃなければ-1を返す（エラー)\   
+    var j = -1;
+    var avgChest = (Cchest1+Cchest2)/2;
+    //判定
+    if(this.bust<Cchest1) j = 0;
+    else if(Cchest1<= this.bust&&this.bust<=avgChest-1) j = 1;
+    else if(this.bust>=avgChest-1&&this.bust<=avgChest+1) j = 2;
+    else if(this.bust>=avgChest+1&&this.bust<=Cchest2) j = 3;
+    else if(this.bust>Cchest2) j=4
+    var judgeColor = '';
+    switch(j){
+      case 0:
+        judgeColor = 'blue';
+      case 1:
+        judgeColor = 'aqua';
+      case 2:
+        judgeColor = 'green';
+      case 3:
+        judgeColor = 'yellow';
+      case 4:
+        judgeColor = 'red';
+    }
+    return judgeColor;
+  }
+
 }
