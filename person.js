@@ -1,5 +1,5 @@
 class PersonDrawer {
-  drawLeftArm(ctx) {
+  drawLeftArm(ctx, person) {
     ctx.moveTo(433.13, 370);
     ctx.lineTo(430.13, 417.28);
     ctx.bezierCurveTo(430.13, 417.28, 439.28, 420.63, 463.32, 445.28);
@@ -15,13 +15,15 @@ class PersonDrawer {
     ctx.bezierCurveTo(481.6300000000001, 402.68, 455.49, 377.42, 433.13, 370);
   }
 
-  drawHead(ctx) {
-    ctx.moveTo(387.36, 338.29);
+  drawHead(ctx,person) {
+    ctx.moveTo(0,300)
+    ctx.lineTo(0,-300)
+    var xgap=-360
+    var ygap=-650
+    ctx.moveTo(387.36+xgap, 338.29+ygap);
     ctx.lineTo(385.31, 325);
     ctx.bezierCurveTo(385.31, 325, 389.82, 321.8, 394.49, 313.76);
-    ctx.translate(347.9687756713869, 286.87713209185347);
-    ctx.arc(0, 0, 53.73, 0.5239828137750527, 0.21251863291250844, 1);
-    ctx.translate(-347.9687756713869, -286.87713209185347);
+    ctx.arc(347.9687756713869, 286.87713209185347, 53.73, 0.5239828137750527, 0.21251863291250844, 1);
     ctx.bezierCurveTo(400.49, 298.21, 410.31, 292.07, 410.57, 283.21);
     ctx.bezierCurveTo(410.57, 278.21, 405.05, 274, 405.05, 274);
     ctx.bezierCurveTo(405.05, 274, 408.79, 254.93, 398.15000000000003, 238.32999999999998);
@@ -30,14 +32,12 @@ class PersonDrawer {
     ctx.bezierCurveTo(311.18, 254.98999999999998, 314.91, 274.05, 314.91, 274.05);
     ctx.bezierCurveTo(314.91, 274.05, 309.13000000000005, 274.44, 309.39000000000004, 283.26);
     ctx.bezierCurveTo(309.65000000000003, 292.08, 319.47, 298.26, 319.47, 298.26);
-    ctx.translate(371.99122432861316, 286.9271320918534);
-    ctx.arc(0, 0, 53.73, 2.9290740206772856, 2.617609839814741, 1);
-    ctx.translate(-371.99122432861316, -286.9271320918534);
+    ctx.arc(371.99122432861316, 286.9271320918534, 53.73, 2.9290740206772856, 2.617609839814741, 1);
     ctx.bezierCurveTo(330.14000000000004, 321.81, 334.65000000000003, 325.05, 334.65000000000003, 325.05);
-    ctx.lineTo(332.6, 338.33);
+    ctx.lineTo(332.6+xgap, 338.33);
   }
 
-  drawRightArm(ctx) {
+  drawRightArm(ctx, person) {
     ctx.moveTo(286.64, 370);
     ctx.lineTo(289.64, 417.28);
     ctx.bezierCurveTo(289.64, 417.28, 280.5, 420.63, 256.45, 445.28);
@@ -53,7 +53,7 @@ class PersonDrawer {
     ctx.bezierCurveTo(238.12, 402.6800000000001, 264.28, 377.42, 286.64, 370);
   }
 
-  drawBody(ctx) {
+  drawBody(ctx, person) {
     ctx.moveTo(297.09, 546.91);
     ctx.bezierCurveTo(297.09, 522.0899999999999, 291.79999999999995, 474.72999999999996, 291.79999999999995, 474.72999999999996);
     ctx.bezierCurveTo(291.79999999999995, 474.72999999999996, 290.61999999999995, 458.02, 290.61999999999995, 446.49999999999994);
@@ -77,17 +77,13 @@ class PersonDrawer {
     ctx.bezierCurveTo(428.15999999999997, 474.72999999999996, 422.9, 522.0899999999999, 422.86999999999995, 546.91);
   }
 
-  drawLeg(ctx) {
+  drawLeg(ctx,person) {
     ctx.moveTo(437.25, 733.36);
     ctx.bezierCurveTo(446.05, 690.63, 442.81, 660.36, 442.25, 631.8100000000001);
     ctx.bezierCurveTo(441.69, 603.2600000000001, 427.57, 573.8100000000001, 424.47, 564.86);
-    ctx.translate(463.38623764001824, 552.3746746960429);
-    ctx.arc(0, 0, 40.87, 2.831140976845075, 3.276937583346361, 0);
-    ctx.translate(-463.38623764001824, -552.3746746960429);
+    ctx.arc(463.38623764001824, 552.3746746960429, 40.87, 2.831140976845075, 3.276937583346361, 0);
     ctx.lineTo(297.11, 546.86);
-    ctx.translate(256.6137623599819, 552.3746746960429);
-    ctx.arc(0, 0, 40.87, -0.13534492975656817, 0.3104516767447181, 0);
-    ctx.translate(-256.6137623599819, -552.3746746960429);
+    ctx.arc(256.6137623599819, 552.3746746960429, 40.87, -0.13534492975656817, 0.3104516767447181, 0);
     ctx.bezierCurveTo(292.43, 573.86, 278.32000000000005, 603.29, 277.75, 631.8100000000001);
     ctx.bezierCurveTo(277.17999999999995, 660.3300000000002, 273.95, 690.6300000000001, 282.75, 733.36);
     ctx.bezierCurveTo(291.55, 776.0899999999999, 299.58, 771.83, 301.03, 809.47);
@@ -120,34 +116,37 @@ class Person {
     this.sex = params.sex;
     this.height = params.height;
     this.weight = params.weight;
+    var bmi = this.weight/(this.height/100)**2;
+    console.log(bmi)
     //任意入力または必須入力からのオートフィル
-    this.shoulder = params.shoulder || params.height * 0.25; //肩幅
     if (this.sex == "male") {
-      this.bust = params.bust || params.bust * 0.7;
-      this.waist = params.waist || params.waist * 0.7;
-      this.hip = params.hip || params.hip * 0.7;
-      this.rise = params.rise || params.rise * 0.7; //股上
-      this.inseam = params.inseam || params.inseam * 0.7; //股下
+      this.shoulder = params.shoulder || bmi*2.12; //肩幅
+      this.bust = params.bust || bmi*4.1;
+      this.waist = params.waist || bmi*3.47;
+      this.hip = params.hip || bmi*4.38;
+      this.rise = params.rise || this.height*0.18; //股上
+      this.inseam = params.inseam || this.height*0.4; //股下
     } else {
-      this.bust = params.bust || params.bust * 0.7;
-      this.waist = params.waist || params.waist * 0.7;
-      this.hip = params.hip || params.hip * 0.7;
-      this.rise = params.rise || params.rise * 0.7;
-      this.inseam = params.inseam || params.inseam * 0.7;
+      this.shoulder = params.shoulder || bmi*2.12; //肩幅
+      this.bust = params.bust || bmi*4.6;
+      this.waist = params.waist || bmi*3.47;
+      this.hip = params.hip || bmi*4.38;
+      this.rise = params.rise || this.height*0.18;
+      this.inseam = params.inseam || this.height*0.4;
     }
 
     this.drawer = new PersonDrawer();
   }
 
   draw(ctx) {
+    console.log(this)
     ctx.fillStyle = "#808080";
-    ctx.translate(0, -100);
     ctx.beginPath();
-    this.drawer.drawHead(ctx);
-    this.drawer.drawLeftArm(ctx);
-    this.drawer.drawRightArm(ctx);
-    this.drawer.drawBody(ctx);
-    this.drawer.drawLeg(ctx);
+    this.drawer.drawHead(ctx,this);
+    this.drawer.drawLeftArm(ctx,this);
+    this.drawer.drawRightArm(ctx,this);
+    this.drawer.drawBody(ctx,this);
+    this.drawer.drawLeg(ctx,this);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -159,7 +158,6 @@ class Person {
   //   var height = 169;
   //   var weight = 60;
   //   var shoulder = 44;
-  //   var armlength = 56;
   //   var bust = 85;
   //   var waist = 72;
   //   var hip = 91;
