@@ -35,7 +35,7 @@ document.getElementById("button").onclick = function() {
     width: 60,
   });
 
-  height = 190;
+  height = formElements.height.value;
   p = height/170;
   ctx.translate(110*1/3*(height-170)/10,-130*1/3*(height-170)/10);
   ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更
@@ -45,8 +45,8 @@ document.getElementById("button").onclick = function() {
   ctx.translate(-34.5*q*10, -36*r*10);//服のサイズ変更の位置ずれ補正
   ctx.scale(1.0+q,1.0+r);
   shirt.draw(ctx);
-
-  /*const jedge = new jedge({
+/** 
+  const judge = new judge({
     sex: formElements.sex.value,
     height: formElements.height.value,
     weight: formElements.weight.value,
@@ -56,18 +56,18 @@ document.getElementById("button").onclick = function() {
     hip: formElements.hip.value,
     rise:formElements.rise.value,
     inseam: formElements.inseam.value,
-  });*/
-
+  });
+**/
   //chestLine
   ctx.beginPath();
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = person.judgeWaist1(80);
   ctx.moveTo(0, 450);
   ctx.lineTo(650,450);
   ctx.stroke();
 
   //waistLine
   ctx.beginPath();
-  ctx.strokeStyle = "blue";
+  ctx.strokeStyle = person.judgeWaist1(80);
   ctx.moveTo(0, 550);
   ctx.lineTo(650,550);
   ctx.stroke();

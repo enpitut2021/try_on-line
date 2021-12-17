@@ -122,18 +122,19 @@ class Person {
     this.weight = params.weight;
     //任意入力または必須入力からのオートフィル
     this.shoulder = params.shoulder || params.height * 0.25; //肩幅
+    //初期値は男女の理想体型（股上はテキトー）
     if (this.sex == "male") {
-      this.bust = params.bust || params.bust * 0.7;
-      this.waist = params.waist || params.waist * 0.7;
-      this.hip = params.hip || params.hip * 0.7;
-      this.rise = params.rise || params.rise * 0.7; //股上
-      this.inseam = params.inseam || params.inseam * 0.7; //股下
+      this.bust = params.bust || params.height * 0.52;
+      this.waist = params.waist || params.height * 0.43;
+      this.hip = params.hip || params.height * 0.51;
+      this.rise = params.rise || params.height * 0.1; //股上
+      this.inseam = params.inseam || params.height * 0.456; //股下
     } else {
-      this.bust = params.bust || params.bust * 0.7;
-      this.waist = params.waist || params.waist * 0.7;
-      this.hip = params.hip || params.hip * 0.7;
-      this.rise = params.rise || params.rise * 0.7;
-      this.inseam = params.inseam || params.inseam * 0.7;
+      this.bust = params.bust || params.height * 0.52;//トップバスト
+      this.waist = params.waist || params.height * 0.38;
+      this.hip = params.hip || params.height * 0.53;
+      this.rise = params.rise || params.height * 0.1;
+      this.inseam = params.inseam || params.height * 0.47;
     }
 
     this.drawer = new PersonDrawer();
@@ -165,4 +166,44 @@ class Person {
   //   var hip = 91;
   //   var rise = 30;
   //   var inseam = 69;
+
+
+
+  judgeWaist2(Cwaist1,Cwaist2){//ウエストの判定,服のウエストを引数(Cwaist1~Cwaist2)//引数2つ
+    var j = -1;// j = {0,キツイ},{1,タイトな感じ～},｛2,ちょうどいい},{3,ルーズフィット！},{4,ぶかぶか}
+    this.waist += 3;//基準サイズ
+    var avgWaist = (Cwaist1+Cwaist2)/2;
+    //判定部
+    if(this.waist<Cwaist1) j = 0;
+    else if(Cwaist1<=this.waist&&this.waist<=avgWaist) j = 1;
+    else if(this.waist>=avgWaist-1&&this.waist<=avgWaist+1) j = 2;
+    else if(this.waist>=avgWaist&&this.waist<=Cwaist2) j = 3;
+    else if(this.waist>Cwaist2) j = 4;
+    var Message = '';
+    var judgeColor = '';
+    switch(j){// j = {0,キツイ},{1,タイトな感じ～},｛2,ちょうどいい},{3,ルーズフィット！},{4,ぶかぶか}
+        case 4:
+            Message = 'キツイ';
+            judgeColor = 'red';
+        case 3:
+            Message = 'タイトな感じ!';
+            judgeColor = 'yellow';
+        case 2:
+            Message = 'ちょうどいい';
+            judgeColor = 'green';
+        case 1:
+            Message = 'ルーズフィット';
+            judgeColor = 'aqua';
+        case 0:
+            Message = 'ぶかぶか';
+            judgeColor ='blue';
+
+    }
+    //console.log(judgeColor);
+    return judgeColor;
+  }
+
+  judgeWaist1(Cwaist){//引数一つ
+      return this.judgeWaist2(Cwaist-3,Cwaist+3);
+  }
 }
