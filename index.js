@@ -60,14 +60,14 @@ document.getElementById("button").onclick = function() {
 **/
   //chestLine
   ctx.beginPath();
-  ctx.strokeStyle = person.judgeChest(80);
+  ctx.strokeStyle = person.judge(80,90,100);
   ctx.moveTo(0, 450);
   ctx.lineTo(650,450);
   ctx.stroke();
 
   //waistLine
   ctx.beginPath();
-  ctx.strokeStyle = person.judgeWaist1(80);
+  ctx.strokeStyle = person.judge(80,90,80);
   ctx.moveTo(0, 550);
   ctx.lineTo(650,550);
   ctx.stroke();

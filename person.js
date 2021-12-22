@@ -168,20 +168,28 @@ class Person {
   //   var inseam = 69;
 
 
-
-  judgeWaist2(Cwaist1,Cwaist2){//ウエストの判定,服のウエストを引数(Cwaist1~Cwaist2)//引数2つ
+  //服のサイズを示す引数が一つしかない場合には引値を二つ持たすようにする
+  judge(size_min,size_max,bodysize){//ウエストの判定,服のウエストを引数(size_minmax)//引数2つ
     var j = -1;// j = {0,キツイ},{1,タイトな感じ～},｛2,ちょうどいい},{3,ルーズフィット！},{4,ぶかぶか}
-    this.waist += 3;//基準サイズ
-    var avgWaist = (Cwaist1+Cwaist2)/2;
+    bodysize += 4;//基準サイズ
+    var size_avg = (size_min+size_max)/2;
+    console.log(-1);
     //判定部
-    if(this.waist<Cwaist1) j = 0;
-    else if(Cwaist1<=this.waist&&this.waist<=avgWaist-1) j = 1;
-    else if(this.waist>=avgWaist-1&&this.waist<=avgWaist+1) j = 2;
-    else if(this.waist>=avgWaist+1&&this.waist<=Cwaist2) j = 3;
-    else if(this.waist>Cwaist2) j = 4;
+    if(bodysize<size_min) j = 0;
+    else if(size_min<=bodysize&&bodysize< size_avg-1) j = 1;
+    else if(bodysize>= size_avg-1&&bodysize<= size_avg+1) j = 2;
+    else if(bodysize> size_avg+1&&bodysize<= size_max) j = 3;
+    else if(bodysize> size_max) j = 4;
+    console.log(j);
     var Message = '';
     var judgeColor = '';
-    switch(j){// j = {0,キツイ},{1,タイトな感じ～},｛2,ちょうどいい},{3,ルーズフィット！},{4,ぶかぶか}
+    if(j==0) judgeColor ='blue';
+    else if(j==1) judgeColor = 'aqua';
+    else if(j==2) judgeColor = 'green';
+    else if(j==3) judgeColor = 'yellow';
+    else if(j==4) judgeColor = 'red';
+    /*
+    switch(j){
         case 4:
             Message = 'キツイ';
             judgeColor = 'red';
@@ -197,40 +205,10 @@ class Person {
         case 0:
             Message = 'ぶかぶか';
             judgeColor ='blue';
-
-    }
-    //console.log(judgeColor);
+    }*/
+    console.log(judgeColor);
     return judgeColor;
   }
-
-  judgeWaist1(Cwaist){//引数一つ
-      return this.judgeWaist2(Cwaist-3,Cwaist+3);
-  }
-
-  judgeChest(Cchest1,Cchest2){//男性のチェストの判定,Cchest1<Cchest2
-    if(this.sex!='male') return -1;//男性じゃなければ-1を返す（エラー)\   
-    var j = -1;
-    var avgChest = (Cchest1+Cchest2)/2;
-    //判定
-    if(this.bust<Cchest1) j = 0;
-    else if(Cchest1<= this.bust&&this.bust<=avgChest-1) j = 1;
-    else if(this.bust>=avgChest-1&&this.bust<=avgChest+1) j = 2;
-    else if(this.bust>=avgChest+1&&this.bust<=Cchest2) j = 3;
-    else if(this.bust>Cchest2) j=4
-    var judgeColor = '';
-    switch(j){
-      case 0:
-        judgeColor = 'blue';
-      case 1:
-        judgeColor = 'aqua';
-      case 2:
-        judgeColor = 'green';
-      case 3:
-        judgeColor = 'yellow';
-      case 4:
-        judgeColor = 'red';
-    }
-    return judgeColor;
-  }
+  
 
 }
