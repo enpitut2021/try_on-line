@@ -34,6 +34,10 @@ class PersonDrawer {
   }
 
   drawLeftArm(ctx, person) {
+    var shoulder = (person.shoulder)*3.364;
+    //左肩上接合部(-shoulder/2, -279.8)
+    //
+
     ctx.moveTo(-73.36, -280);
     ctx.lineTo(-70.36, -232.72);
     ctx.bezierCurveTo(-70.36, -232.72, -79.5, -229.37, -103.55, -204.72);
@@ -52,21 +56,23 @@ class PersonDrawer {
   drawBody(ctx, person) {
     //(シルエット上)*canvas上でのウエスト長
     var waist = (person.waist*0.4)*4.2;
+    var bust = (person.bust*0.4)*4.2;
+    var shoulder = (person.shoulder)*3.364;
 
     ctx.moveTo(-waist/2, -103.09);
-    ctx.bezierCurveTo(-62.91, -127.91, -68.2, -175.27, -68.2, -175.27);
-    ctx.bezierCurveTo(-68.2, -175.27, -69.38, -191.98, -69.38, -203.5);
-    ctx.bezierCurveTo(-69.38, -215.02, -70.38, -232.21, -70.38, -232.21);
-    ctx.lineTo(-74, -279.8);
-    ctx.bezierCurveTo(-74, -279.8, -37.82, -291.07, -32.44, -297.17);
+    ctx.bezierCurveTo(-(waist/2)*1.1, -127.91, -(waist/2)*1.15, -175.27, -(waist/2)*1.15, -175.27);
+    ctx.bezierCurveTo(-(waist/2)*1.15, -175.27, -bust/2, -191.98, -bust/2, -203.5);
+    ctx.bezierCurveTo(-bust/2, -215.02, -(shoulder/2)*0.95, -232.21, -(shoulder/2)*0.95, -232.21);
+    ctx.lineTo(-shoulder/2, -279.8);
+    ctx.bezierCurveTo(-shoulder/2, -279.8, -37.82, -291.07, -32.44, -297.17);
     ctx.bezierCurveTo(-32.44, -297.17, -27.25, -311.71, -27.25, -311.711);
     ctx.lineTo(27.27, -311.71);
     ctx.bezierCurveTo(27.27, -311.71, 27.09, -303.27, 32.46, -297.17);
-    ctx.bezierCurveTo(37.83, -291.07, 74, -279.8, 74, -279.8);
-    ctx.lineTo(70.34, -232.21);
-    ctx.bezierCurveTo(70.34, -232.21, 69.34, -215.02, 69.34, -203.5);
-    ctx.bezierCurveTo(69.34, -203.5, 68.16, -175.27, 68.16, -175.27);
-    ctx.bezierCurveTo(68.16, -175.27, 62.9, -127.91, waist/2, -103.09);
+    ctx.bezierCurveTo(37.83, -291.07, shoulder/2, -279.8, shoulder/2, -279.8);
+    ctx.lineTo((shoulder/2)*0.95, -232.21);
+    ctx.bezierCurveTo((shoulder/2)*0.95, -232.21, bust/2, -215.02, bust/2, -203.5);
+    ctx.bezierCurveTo(bust/2, -195.5, (waist/2)*1.15, -175.27, (waist/2)*1.15, -175.27);
+    ctx.bezierCurveTo((waist/2)*1.15, -175.27, (waist/2)*1.1, -127.91, waist/2, -103.09);
   }
 
   drawLeg(ctx,person) {
