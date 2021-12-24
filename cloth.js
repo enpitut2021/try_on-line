@@ -87,6 +87,7 @@ class ShirtDrawer {
 
 class TShirtDrawer {
   draw(ctx) {
+    ctx.translate(0, -25);
     ctx.moveTo(311.71, 379.13);
     ctx.bezierCurveTo(311.71, 379.13, 335.2, 386.71, 360, 386.71);
     ctx.translate(357.9606436178229, 226.8830103344667);
