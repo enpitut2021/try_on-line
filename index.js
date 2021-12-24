@@ -32,9 +32,10 @@ document.getElementById("button").onclick = function() {
 
   const SIZE = 600;
 
-  const shirt = new Shirt({
+  const shirt = new Cloth({
     height: 75,
     width: 60,
+    kind: "shirt",
   });
 
   height = formElements.height.value;
