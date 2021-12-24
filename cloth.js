@@ -134,7 +134,7 @@ class TShirtDrawer {
 }
 
 const drawerMap = {
-  shirt: ShirtDrawer,
+  "shirt": ShirtDrawer,
   "t-shirt": TShirtDrawer,
 };
 
