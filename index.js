@@ -14,6 +14,8 @@ document.getElementById("button").onclick = function() {
     rise:formElements.rise.value,
     inseam: formElements.inseam.value,
   });
+
+  const fit = new showFittCircle()
   
 
   // ここに#buttonをクリックしたら発生させる処理を記述する
@@ -68,6 +70,12 @@ document.getElementById("button").onclick = function() {
   //waistLine
   ctx.beginPath();
   ctx.strokeStyle = person.judge(80,90,80);
+  ctx.moveTo(0, 550);
+  ctx.lineTo(650,550);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.strokeStyle = fit.drawFittCircle(ctx,180,190,150,380,'red');
   ctx.moveTo(0, 550);
   ctx.lineTo(650,550);
   ctx.stroke();

@@ -209,19 +209,31 @@ class Person {
     console.log(judgeColor);
     return judgeColor;
   }
+
+  drawFittCircle(ctx,x1,y1,x2,y2,color){
+    var center_x = (x1+x2)/2;
+    var center_y = (y1+y2)/2;
+    var w = Math.abs(x2-x1);
+    var h = w*0.3;
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.ellipse(center_x,center_y,w,h,0,0,Math.PI*2);
+    ctx.closePath();
+    ctx.fill();
+    }
 }
 
 
 class showFittCircle{
-  constructor(x1,y1,x2,y2,color){
+  /*constructor(x1,y1,x2,y2,color){
     this.x1 = x1;
     this.x2 = x2;
     this.y1 = y1;
     this.y2 = y2;
     this.color = color;
-  }
+  }*/
 
-  drawFittCircle(ctx){
+  drawFittCircle(ctx,x1,y1,x2,y2,color){
     var center_x = (x1+x2)/2;
     var center_y = (y1+y2)/2;
     var w = Math.abs(x2-x1);
