@@ -1,23 +1,30 @@
 class PersonDrawer {
   drawRightArm(ctx, person) {
-    ctx.moveTo(73.13, -280);
-    ctx.lineTo(70.13, -232.72);
-    ctx.bezierCurveTo(70.13, -232.72, 79.28, -229.37, 103.32, -204.72);
-    ctx.bezierCurveTo(103.32, -204.72, 142.03, -161.82, 152.68, -151.42);
-    ctx.bezierCurveTo(152.68, -151.42, 221.49, -90.05, 236.68, -71.16);
-    ctx.bezierCurveTo(236.68, -71.16, 268.41, -25.75, 275.08, -30.24);
-    ctx.bezierCurveTo(281.75, -34.73, 258, -50.87, 262, -53.68);
-    ctx.bezierCurveTo(274.06, -62.01, 291.66, -6.02, 303.25, -12.31);
-    ctx.bezierCurveTo(314.84, -18.60, 294, -57.77, 283.62, -67.1);
-    ctx.bezierCurveTo(273.24, -76.43, 249.93, -91.46, 249.93, -91.46);
-    ctx.bezierCurveTo(249.93, -91.46, 193.59, -167.78, 185.27, -175.26);
-    ctx.bezierCurveTo(176.95, -182.74, 147.77, -219.88, 134.70, -233.6);
-    ctx.bezierCurveTo(121.63, -247.32, 95.49, -272.58, 73.13, -280);
+    var shoulder = (person.shoulder)*3.324;
+    //bodyの右肩上接合部(shoulder/2, -279.8)
+    //bodyの右肩下結合部((shoulder/2)*0.95, -232.21)
+    var div = shoulder/2 - 73.13;
+    var bmi = person.weight/(person.height/100)**2;//170cm60kgで20
+    var armweight=bmi-20;
+
+    ctx.moveTo(73.13 + div, -280);
+    ctx.lineTo(70.13 + div, -232.72);
+    ctx.bezierCurveTo(70.13 + div, -232.72, 79.28 + div, -229.37 + armweight, 103.32 + div, -204.72 + armweight);
+    ctx.bezierCurveTo(103.32 + div, -204.72 + armweight, 142.03 + div, -161.82 + armweight, 152.68 + div, -151.42 + armweight);
+    ctx.bezierCurveTo(152.68 + div, -151.42 + armweight, 221.49 + div, -90.05 + armweight, 236.68 + div, -71.16);
+    ctx.bezierCurveTo(236.68 + div, -71.16, 268.41 + div, -25.75, 275.08 + div, -30.24);
+    ctx.bezierCurveTo(281.75 + div, -34.73, 258 + div, -50.87, 262 + div, -53.68);
+    ctx.bezierCurveTo(274.06 + div, -62.01, 291.66 + div, -6.02, 303.25 + div, -12.31);
+    ctx.bezierCurveTo(314.84 + div, -18.60, 294 + div, -57.77, 283.62 + div, -67.1);
+    ctx.bezierCurveTo(273.24 + div, -76.43, 249.93 + div, -91.46, 249.93 + div, -91.46);
+    ctx.bezierCurveTo(249.93 + div, -91.46, 193.59 + div, -167.78, 185.27 + div, -175.26);
+    ctx.bezierCurveTo(176.95 + div, -182.74, 147.77 + div, -219.88, 134.70 + div, -233.6);
+    ctx.bezierCurveTo(121.63 + div, -247.32, 95.49 + div, -272.58, 73.13 + div, -280);
   }
 
   drawHead(ctx,person) {
-    ctx.moveTo(27.36, -311.71)
-    ctx.lineTo(25.31, -325)
+    ctx.moveTo(27.36, -311.71);
+    ctx.lineTo(25.31, -325);
     ctx.bezierCurveTo(25.31, -325, 29.82, -328.2, 34.49, -336.24);
     ctx.arc(-12.031, -363.12, 53.73, 0.5239828137750527, 0.21251863291250844, 1);
     ctx.bezierCurveTo(40.49, -351.79, 50.31, -357.93, 50.57, -366.79);
@@ -34,30 +41,34 @@ class PersonDrawer {
   }
 
   drawLeftArm(ctx, person) {
-    var shoulder = (person.shoulder)*3.364;
+    var shoulder = (person.shoulder)*3.324;
     //左肩上接合部(-shoulder/2, -279.8)
-    //
+    //左肩下接合部(-(shoulder/2)*0.95, -232.21)
+    var div=(-shoulder/2)+73.36;
+    var bmi = person.weight/(person.height/100)**2;//170cm60kgで20
+    var armweight=bmi-20;
+    console.log(bmi);
 
-    ctx.moveTo(-73.36, -280);
-    ctx.lineTo(-70.36, -232.72);
-    ctx.bezierCurveTo(-70.36, -232.72, -79.5, -229.37, -103.55, -204.72);
-    ctx.bezierCurveTo(-103.55, -204.72, -142.25, -161.82, -152.91, -151.42);
-    ctx.bezierCurveTo(-152.91, -151.42, -221.71, -90.05, -236.91, -71.16);
-    ctx.bezierCurveTo(-236.91, -71.16, -268.64, -25.75, -275.31, -30.24);
-    ctx.bezierCurveTo(-285.31, -30.24, -258.24, -50.92, -262.31, -53.73);
-    ctx.bezierCurveTo(-274.33, -62, -291.92, -9, -303.52, -12.31);
-    ctx.bezierCurveTo(-315.12, -18.62, -294.22, -57.77, -283.86, -67.1);
-    ctx.bezierCurveTo(-273.5, -76.43, -250.16, -91.46, -250.16, -91.46);
-    ctx.bezierCurveTo(-250.16, -91.46, -193.83, -167.78, -185.5, -175.26);
-    ctx.bezierCurveTo(-177.17, -182.74, -148, -219.88, -134.94, -233.6);
-    ctx.bezierCurveTo(-121.88, -247.32, -95.72, -272.58, -73.36, -280);
+    ctx.moveTo(-73.36+div, -280);
+    ctx.lineTo(-70.36+div, -232.72);
+    ctx.bezierCurveTo(-70.36+div, -232.72, -79.5+div, -229.37+armweight, -103.55+div, -204.72+armweight);
+    ctx.bezierCurveTo(-103.55+div, -204.72+armweight, -142.25+div, -161.82+armweight, -152.91+div, -151.42+armweight);
+    ctx.bezierCurveTo(-152.91+div, -151.42+armweight, -221.71+div, -90.05+armweight, -236.91+div, -71.16);
+    ctx.bezierCurveTo(-236.91+div, -71.16, -268.64+div, -25.75, -275.31+div, -30.24);
+    ctx.bezierCurveTo(-285.31+div, -30.24, -258.24+div, -50.92, -262.31+div, -53.73);
+    ctx.bezierCurveTo(-274.33+div, -62, -291.92+div, -9, -303.52+div, -12.31);
+    ctx.bezierCurveTo(-315.12+div, -18.62, -294.22+div, -57.77, -283.86+div, -67.1);
+    ctx.bezierCurveTo(-273.5+div, -76.43, -250.16+div, -91.46, -250.16+div, -91.46);
+    ctx.bezierCurveTo(-250.16+div, -91.46, -193.83+div, -167.78, -185.5+div, -175.26);
+    ctx.bezierCurveTo(-177.17+div, -182.74, -148+div, -219.88, -134.94+div, -233.6);
+    ctx.bezierCurveTo(-121.88+div, -247.32, -95.72+div, -272.58, -73.36+div, -280);
   }
 
   drawBody(ctx, person) {
     //(シルエット上)*canvas上でのウエスト長
     var waist = (person.waist*0.4)*4.2;
     var bust = (person.bust*0.4)*4.2;
-    var shoulder = (person.shoulder)*3.364;
+    var shoulder = (person.shoulder)*3.324;
 
     ctx.moveTo(-waist/2, -103.09);
     ctx.bezierCurveTo(-(waist/2)*1.1, -127.91, -(waist/2)*1.15, -175.27, -(waist/2)*1.15, -175.27);
@@ -125,15 +136,15 @@ class Person {
     if (this.sex == "male") {
       this.shoulder = params.shoulder || bmi*2.12; //肩幅
       this.bust = params.bust || bmi*4.1;
-      this.waist = params.waist || bmi*3.47;
-      this.hip = params.hip || bmi*4.38;
+      this.waist = params.waist || -0.47*this.height+0.80*this.weight+105.82;
+      this.hip = params.hip || 63.2+0.45*this.weight;
       this.rise = params.rise || this.height*0.18; //股上
       this.inseam = params.inseam || this.height*0.4; //股下
     } else {
       this.shoulder = params.shoulder || bmi*2.12; //肩幅
       this.bust = params.bust || bmi*4.6;
-      this.waist = params.waist || bmi*3.47;
-      this.hip = params.hip || bmi*4.38;
+      this.waist = params.waist || -0.35*this.height+0.79*this.weight+84.4;
+      this.hip = params.hip || 59.1+0.61*this.weight;
       this.rise = params.rise || this.height*0.18;
       this.inseam = params.inseam || this.height*0.4;
     }
