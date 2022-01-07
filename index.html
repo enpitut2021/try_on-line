@@ -19,10 +19,10 @@
     <h2>まず、身長、体重などを入力してください。</h2>
 
     <form class="row g-3 mt-2" name="input" method="post" action="#">
-    <h5>必須項目</h5>
+      <span class="fw-bold"><span class="text-danger">*</span> は必須</span>
       <div class="row mt-2">
         <div class="col-md-2">
-          <label for="sex-form" class="form-label">性別</label>
+          <label for="sex-form" class="form-label">性別<span class="text-danger">*</span></label>
           <select class="form-select" name="sex" id="sex-form">
             <option selected disabled>選択してください</option>
             <option value="male">男性</option>
@@ -30,14 +30,14 @@
           </select>
         </div>
         <div class="col-md-2">
-          <label for="height-form" class="form-label">身長</label>
+          <label for="height-form" class="form-label">身長<span class="text-danger">*</span></label>
           <div class="input-group">
             <input name="height" type="number" class="form-control" id="height-form" />
             <span class="input-group-text" id="basic-addon2">cm</span>
           </div>
         </div>
         <div class="col-md-2">
-          <label for="weight-form" class="form-label">体重</label>
+          <label for="weight-form" class="form-label">体重<span class="text-danger">*</span></label>
           <div class="input-group">
             <input name="weight" type="number" class="form-control" id="weight-form" />
             <span class="input-group-text" id="basic-addon2">kg</span>
