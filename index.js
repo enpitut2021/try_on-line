@@ -35,7 +35,7 @@ document.getElementById("button").onclick = function() {
   const shirt = new Cloth({
     height: 75,
     width: 60,
-    kind: "shirt",//formElements.cloth_size.value,
+    kind: formElements.cloth_type.value,
   });
 
   height = formElements.height.value;
