@@ -1,84 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Try on-line</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div id="container"></div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container"></div>
 
-<h1>Welcome to Try On-line</h1>
-<h2>まず、身長、体重などを入力してください。</h2>
+    <h1>Welcome to Try On-line</h1>
+    <h2>まず、身長、体重などを入力してください。</h2>
 
-<form name="input" method="post" action="#">
-    <ul>
+    <form name="input" method="post" action="#">
+      <ul>
         <h3>必須項目</h3>
-    
-        <li>
-            性別
-            <input type="radio" name="sex" value="male">男性
-            <input type="radio" name="sex" value="female">女性
-        </li>
-        <li>
-            身長
-            <input type="number" name="height">
 
+        <li>
+          性別
+          <input type="radio" name="sex" value="male" />男性 <input type="radio" name="sex" value="female" />女性
         </li>
         <li>
-            体重
-            <input type="number" name="weight">
+          身長
+          <input type="number" name="height" />
+        </li>
+        <li>
+          体重
+          <input type="number" name="weight" />
         </li>
 
         <h3>任意項目</h3>
 
-
         <li>
-            肩幅
-            <input type="number" name="shoulder">
+          肩幅
+          <input type="number" name="shoulder" />
         </li>
 
         <li>
-            胸囲
-            <input type="number" name="bust">
+          胸囲
+          <input type="number" name="bust" />
         </li>
 
         <li>
-            ウェイスト
-            <input type="number" name="waist">
-        </li>
-
-
-        <li>
-            ヒップ
-            <input type="number" name="hip">
+          ウェイスト
+          <input type="number" name="waist" />
         </li>
 
         <li>
-            股上
-            <input type="number" name="rise">
+          ヒップ
+          <input type="number" name="hip" />
         </li>
 
         <li>
-            股下
-            <input type="number" name="inseam">
+          股上
+          <input type="number" name="rise" />
         </li>
 
-    </ul>
+        <li>
+          股下
+          <input type="number" name="inseam" />
+        </li>
+      </ul>
+    </form>
 
+    <button id="button">完了</button>
 
-</form>
+    <script type="text/javascript" src="cloth.js"></script>
+    <script type="text/javascript" src="person.js"></script>
+    <script type="text/javascript" src="judge.js"></script>
 
-<button id = "button">完了</button>
-
-
-
-
-<script type="text/javascript" src="cloth.js"></script>
-<script type="text/javascript" src="person.js"></script>
-<script type="text/javascript" src="judge.js"></script>
-
-<!--フォーム入力完了ボタン押下後、変数を渡して実行-->
-<script type="text/javascript" src="index.js"></script>
-</body>
+    <!--フォーム入力完了ボタン押下後、変数を渡して実行-->
+    <script type="text/javascript" src="index.js"></script>
+  </body>
 </html>
