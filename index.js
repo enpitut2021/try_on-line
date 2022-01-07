@@ -35,7 +35,7 @@ document.getElementById("button").onclick = function() {
   const shirt = new Cloth({
     height: 75,
     width: 60,
-    kind: "shirt",
+    kind: "shirt",//formElements.cloth_size.value,
   });
 
   height = formElements.height.value;
@@ -76,7 +76,7 @@ document.getElementById("button").onclick = function() {
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.strokeStyle = fit.drawFittCircle(ctx,180,190,150,380,'red');
+  ctx.strokeStyle = fit.drawFittCircle(ctx,280,360,300,420,'red');
   ctx.moveTo(0, 550);
   ctx.lineTo(650,550);
   ctx.stroke();

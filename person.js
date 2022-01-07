@@ -237,7 +237,7 @@ class showFittCircle{
     var center_x = (x1+x2)/2;
     var center_y = (y1+y2)/2;
     var w = Math.abs(x2-x1);
-    var h = w*0.3;
+    var h = w*0.7;
     ctx.fillStyle = color;
     ctx.beginPath();
     ctx.ellipse(center_x,center_y,w,h,0,0,Math.PI*2);
