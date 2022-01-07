@@ -45,6 +45,7 @@ document.getElementById("button").onclick = function() {
   ctx.translate(110*1/3*(height-170)/10,-130*1/3*(height-170)/10);
   ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更*/
   person.draw(ctx);
+  shirt.draw(ctx);
 
   // q=0.085
   // r=0.15
