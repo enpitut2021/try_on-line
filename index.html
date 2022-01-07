@@ -3,66 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <title>Try on-line</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="container">
+    <h1>Try On-line</h1>
     <div id="container"></div>
 
-    <h1>Welcome to Try On-line</h1>
     <h2>まず、身長、体重などを入力してください。</h2>
 
-    <form name="input" method="post" action="#">
-      <ul>
-        <h3>必須項目</h3>
-
-        <li>
-          性別
-          <input type="radio" name="sex" value="male" />男性 <input type="radio" name="sex" value="female" />女性
-        </li>
-        <li>
-          身長
-          <input type="number" name="height" />
-        </li>
-        <li>
-          体重
-          <input type="number" name="weight" />
-        </li>
-
-        <h3>任意項目</h3>
-
-        <li>
-          肩幅
-          <input type="number" name="shoulder" />
-        </li>
-
-        <li>
-          胸囲
-          <input type="number" name="bust" />
-        </li>
-
-        <li>
-          ウェイスト
-          <input type="number" name="waist" />
-        </li>
-
-        <li>
-          ヒップ
-          <input type="number" name="hip" />
-        </li>
-
-        <li>
-          股上
-          <input type="number" name="rise" />
-        </li>
-
-        <li>
-          股下
-          <input type="number" name="inseam" />
-        </li>
-      </ul>
+    <form class="row g-3 mt-2" name="input" method="post" action="#">
+      <div class="row mt-2">
+        <div class="col-md-2">
+          <label for="sex-form" class="form-label">性別</label>
+          <select class="form-select" name="sex" id="sex-form">
+            <option selected disabled>選択してください</option>
+            <option value="male">男性</option>
+            <option value="female">女性</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <label for="height-form" class="form-label">身長</label>
+          <div class="input-group">
+            <input name="height" type="number" class="form-control" id="height-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="weight-form" class="form-label">体重</label>
+          <div class="input-group">
+            <input name="weight" type="number" class="form-control" id="weight-form" />
+            <span class="input-group-text" id="basic-addon2">kg</span>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-2">
+          <label for="shoulder-form" class="form-label">肩幅</label>
+          <div class="input-group">
+            <input name="shoulder" type="number" class="form-control" id="shoulder-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="bust-form" class="form-label">胸囲</label>
+          <div class="input-group">
+            <input name="bust" type="number" class="form-control" id="bust-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="waist-form" class="form-label">ウエスト</label>
+          <div class="input-group">
+            <input name="waist" type="number" class="form-control" id="waist-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="hip-form" class="form-label">ヒップ</label>
+          <div class="input-group">
+            <input name="hip" type="number" class="form-control" id="hip-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="rise-form" class="form-label">股上</label>
+          <div class="input-group">
+            <input name="rise" type="number" class="form-control" id="rise-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="inseam-form" class="form-label">股下</label>
+          <div class="input-group">
+            <input name="inseam" type="number" class="form-control" id="inseam-form" />
+            <span class="input-group-text" id="basic-addon2">cm</span>
+          </div>
+        </div>
+      </div>
     </form>
 
-    <button id="button">完了</button>
+    <button id="button" class="btn btn-primary mt-4">完了</button>
 
     <script type="text/javascript" src="cloth.js"></script>
     <script type="text/javascript" src="person.js"></script>
