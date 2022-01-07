@@ -19,6 +19,7 @@
     <h2>まず、身長、体重などを入力してください。</h2>
 
     <form class="row g-3 mt-2" name="input" method="post" action="#">
+    <h5>必須項目</h5>
       <div class="row mt-2">
         <div class="col-md-2">
           <label for="sex-form" class="form-label">性別</label>
@@ -42,7 +43,25 @@
             <span class="input-group-text" id="basic-addon2">kg</span>
           </div>
         </div>
+        <div class="col-md-2">
+            <label for="sex-form" class="form-label">服の種類</label>
+            <select class="form-select" name="cloth_type" id="sex-form">
+              <option selected disabled>選択してください</option>
+              <option value="t-shirt">Tシャツ</option>
+              <option value="shirt">シャツ</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="sex-form" class="form-label">服のサイズ</label>
+            <select class="form-select" name="cloth_size" id="sex-form">
+              <option selected disabled>選択してください</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="m">L</option>
+            </select>
+          </div>
       </div>
+      <h5>任意項目</h5>
       <div class="row mt-2">
         <div class="col-md-2">
           <label for="shoulder-form" class="form-label">肩幅</label>
