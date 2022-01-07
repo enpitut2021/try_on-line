@@ -89,20 +89,21 @@ class PersonDrawer {
   drawLeg(ctx,person) {
     //(シルエット上)*canvas上でのウエスト長
     var waist = (person.waist*0.4)*4.2;
-    
-    ctx.moveTo(77.25, 83.36);
-    ctx.bezierCurveTo(86.05, 40.63, 82.81, 10.36, 82.25, -18.19);
-    ctx.bezierCurveTo(81.69, -46.74, 67.57, -76.14, 64.47, -85.14);
+    var hip = (person.hip*0.4)*4.2;
+        
+    ctx.moveTo(hip*1.01/2, 83.36);
+    ctx.bezierCurveTo(hip*1.1/2, 40.63, hip*1.08/2, 10.36, hip/2, -20.19);//left_hip
+    ctx.bezierCurveTo(hip/2, -46.74, hip*0.9/2, -76.14, waist*5/14 + hip*2/14, -85.14);
     // ctx.arc(103.386, -97.625, 40.87, 2.831, 3.277, 0);
-    ctx.bezierCurveTo(63, -90, 63.57, -96, waist/2, -103.14);
-    ctx.lineTo(-waist/2, -103.14);
-    ctx.bezierCurveTo(-63.57, -96, -63, -90, -64.47, -85.14);
+    ctx.bezierCurveTo(waist*3/10+hip/5, -90, waist*3/8 + hip/8, -96, waist/2, -103.14);//足とおなかの付け根の部分
+    ctx.lineTo(-waist/2, -103.14);//右のウエストから左のウエストの部分へ
+    ctx.bezierCurveTo(-waist*3/8 - hip/8, -96, -waist*3/10-hip/5, -90, -waist*5/14 - hip*2/14, -85.14);
     // ctx.arc(-103.386, -97.625, 40.87, -0.135, 0.310, 0);
-    ctx.bezierCurveTo(-67.57, -76.14, -81.68, -46.71, -82.25, -18.19);
-    ctx.bezierCurveTo(-82.82, 10.33, -86.05, 40.63, -77.25, 83.36);
-    ctx.bezierCurveTo(-68.45, 126.09, -60.42, 121.83, -58.97, 159.47);
-    ctx.bezierCurveTo(-57.52, 197.11, -65.87, 201.9, -61.09, 239.56);
-    ctx.bezierCurveTo(-56.31, 277.22, -28.38, 338.88, -33.09, 362.41);
+    ctx.bezierCurveTo(-hip*0.9/2, -76.14, -hip/2, -46.71, -hip/2, -20.19);//right_hip
+    ctx.bezierCurveTo(-hip*1.08/2, 10.33, -hip*1.1/2, 40.63, -hip*1.01/2, 83.36);
+    ctx.bezierCurveTo(-hip*0.91/2, 126.09, -hip*0.8/2, 121.83, -hip*0.81/2, 159.47);//膝
+    ctx.bezierCurveTo(-hip*0.74/2, 197.11, -hip*0.83/2, 201.9, -hip*0.775/2, 239.56);
+    ctx.bezierCurveTo(-hip*0.7/2, 277.22, -28.38, 338.88, -33.09, 362.41);
     ctx.bezierCurveTo(-37.8, 385.94, -66.75, 405.56, -55.82, 406.13);
     ctx.bezierCurveTo(-44.89, 406.7, -3.87, 410.64, -5.82, 399.68);
     ctx.bezierCurveTo(-7.77, 388.72, -11.82, 380.68, -12.34, 360.49);
@@ -117,9 +118,13 @@ class PersonDrawer {
     ctx.bezierCurveTo(11.77,380.68, 7.71, 388.73, 5.78, 399.68);
     ctx.bezierCurveTo(3.85, 410.63, 44.87, 406.68, 55.78, 406.13);
     ctx.bezierCurveTo(66.69, 405.58, 37.78, 385.95, 33.05, 362.41);
-    ctx.bezierCurveTo(28.32, 338.87, 56.3, 277.22, 61.05, 239.56);
-    ctx.bezierCurveTo(65.8, 201, 57.48, 197.11, 58.93, 159.47);
-    ctx.bezierCurveTo(60.38, 121.83, 68.45, 126.09, 77.25, 83.36);
+    ctx.bezierCurveTo(28.32, 338.87, hip*0.7/2, 277.22, hip*0.775/2, 239.56);
+    ctx.bezierCurveTo(hip*0.83/2, 201, hip*0.74/2, 197.11, hip*0.81/2, 159.47);//膝
+    ctx.bezierCurveTo(hip*0.8/2, 121.83, hip*0.91/2, 126.09, hip*1.01/2, 83.36);
+
+    //次のスプリントでやること
+    //bmiの大きさに対する足の太さの増加量が著しすぎる。⇒もっと緩やかな影響を与えられるように改良
+
   }
 }
 
@@ -137,7 +142,11 @@ class Person {
       this.shoulder = params.shoulder || bmi*2.12; //肩幅
       this.bust = params.bust || bmi*4.1;
       this.waist = params.waist || -0.47*this.height+0.80*this.weight+105.82;
+<<<<<<< HEAD
       this.hip = params.hip || 63.2+0.45*this.weight;
+=======
+      this.hip = params.hip || 63.2+0.45*person.weigth;//ヒップに身長の影響はほぼなし（16センチ差でも±1cm程度)
+>>>>>>> origin/abesy
       this.rise = params.rise || this.height*0.18; //股上
       this.inseam = params.inseam || this.height*0.4; //股下
     } else {
