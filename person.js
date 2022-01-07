@@ -139,19 +139,15 @@ class Person {
     console.log(bmi)
     //任意入力または必須入力からのオートフィル
     if (this.sex == "male") {
-      this.shoulder = params.shoulder || bmi*2.12; //肩幅
-      this.bust = params.bust || bmi*4.1;
+      this.shoulder = params.shoulder || 25+bmi; //肩幅
+      this.bust = params.bust || -0.36 * this.height + 0.70 * this.weight + 105.64;
       this.waist = params.waist || -0.47*this.height+0.80*this.weight+105.82;
-<<<<<<< HEAD
-      this.hip = params.hip || 63.2+0.45*this.weight;
-=======
-      this.hip = params.hip || 63.2+0.45*person.weigth;//ヒップに身長の影響はほぼなし（16センチ差でも±1cm程度)
->>>>>>> origin/abesy
+      this.hip = params.hip || 63.2+0.45*this.weight;//ヒップに身長の影響はほぼなし（16センチ差でも±1cm程度)
       this.rise = params.rise || this.height*0.18; //股上
       this.inseam = params.inseam || this.height*0.4; //股下
     } else {
-      this.shoulder = params.shoulder || bmi*2.12; //肩幅
-      this.bust = params.bust || bmi*4.6;
+      this.shoulder = params.shoulder || 22+bmi; //肩幅
+      this.bust = params.bust || -0.36 * this.height + 0.70 * this.weight + 115.64;
       this.waist = params.waist || -0.35*this.height+0.79*this.weight+84.4;
       this.hip = params.hip || 59.1+0.61*this.weight;
       this.rise = params.rise || this.height*0.18;
