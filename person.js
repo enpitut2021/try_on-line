@@ -187,9 +187,12 @@ class Person {
   //服のサイズを示す引数が一つしかない場合には引値を二つ持たすようにする
   judge(size_min,size_max,bodysize){//ウエストの判定,服のウエストを引数(size_minmax)//引数2つ
     var j = -1;// j = {0,キツイ},{1,タイトな感じ～},｛2,ちょうどいい},{3,ルーズフィット！},{4,ぶかぶか}
+
     bodysize += 4;//基準サイズ
     var size_avg = (size_min+size_max)/2;
-    console.log(-1);
+    console.log(bodysize);
+    console.log(size_min);
+    console.log(size_max);
     //判定部
     if(bodysize<size_min) j = 0;
     else if(size_min<=bodysize&&bodysize< size_avg-1) j = 1;

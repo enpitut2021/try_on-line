@@ -40,18 +40,43 @@ document.getElementById("button").onclick = function() {
     kind: formElements.cloth_type.value,
   });
 
-  /*height = 190;
+  //身長の変更
+  height = formElements.height.value;
   p = height/170;
   ctx.translate(110*1/3*(height-170)/10,-130*1/3*(height-170)/10);
-  ctx.scale(1.0+(p-1)*0.3,1.0+p-1);//身長の変更*/
+  ctx.scale(1.0+(p-1)*0.3,1.0+p-1);
   person.draw(ctx);
+  //shirt.draw(ctx);
+
+  //服の位置ずれ補正&サイズ変更
+  var size = formElements.cloth_size.value;
+  if(size == 's'){
+    var i=0.90;
+    var x=0.90;
+    var y=0.95;
+  } else if(size=='m') {
+    var i=1.0;
+    var x=1.0;
+    var y=1.0;
+  } else {
+    var i=1.1;
+    var x=1.1;
+    var y=1.1*0.95;
+  }
+  console.log(size);
+
+  console.log(i);
+
+  ctx.translate(-360*x, -660*y);
+  ctx.scale(i,i);
   shirt.draw(ctx);
 
-  // q=0.085
-  // r=0.15
-  // ctx.translate(-34.5*q*10, -36*r*10);//服のサイズ変更の位置ずれ補正
-  // ctx.scale(1.0+q,1.0+r);
-  // shirt.draw(ctx);
+
+  /*q=0.085
+  r=0.15
+  ctx.translate(-34.5*q*10, -36*r*10);
+  ctx.scale(1.0+q,1.0+r);
+  shirt.draw(ctx);*/
 
   /*const jedge = new jedge({
     sex: formElements.sex.value,
@@ -65,6 +90,7 @@ document.getElementById("button").onclick = function() {
     inseam: formElements.inseam.value,
   });
 **/
+  /*
   //chestLine
   ctx.beginPath();
   ctx.strokeStyle = person.judge(80,90,100);
@@ -78,10 +104,8 @@ document.getElementById("button").onclick = function() {
   ctx.moveTo(0, 550);
   ctx.lineTo(650,550);
   ctx.stroke();
-
-  ctx.beginPath();
-  ctx.strokeStyle = fit.drawFittCircle(ctx,280,360,300,420,'red');
-  ctx.moveTo(0, 550);
-  ctx.lineTo(650,550);
-  ctx.stroke();
+  */
+  ctx.strokeStyle = fit.drawFittCircle(ctx,280,360,300,420,person.judge(49*i-3,49*i+3,person.shoulder));//肩幅
+  ctx.strokeStyle = fit.drawFittCircle(ctx,415,360,435,420,person.judge(49*i-3,49*i+3,person.shoulder));//肩幅2
+  
 };
